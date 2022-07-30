@@ -1,0 +1,32 @@
+<div class="row">
+       <div class="col-lg-4"></div>
+    <div class="col-lg-4"  style="border: 2px solid black;">
+
+    <h4 style="text-align: center;"><i><u>Login Page</u></i></h4>
+   
+    <div class="col-lg-4"></div>
+    <form [formGroup]="addLoginForm">
+        
+    <label>email_Id:</label>
+<input type="email" class="form-control" placeholder="Enter email_Id" formControlName="email"
+[ngClass]="{'is-invalid': submitted == true && addLoginForm.controls['email'].invalid}">
+<div *ngIf="submitted==true && addLoginForm.controls['email'].invalid" class="invalid-feedback">
+    <div *ngIf="addLoginForm.controls['email'].errors.required"> email is required</div>
+<div *ngIf="addLoginForm.controls['email'].errors.email">email is invalid</div>
+   
+  </div>
+ 
+<label>Password:</label>
+<input type="password" class="form-control" placeholder="Enter password" formControlName="password"
+[ngClass]="{'is-invalid': submitted == true && addLoginForm.controls['password'].invalid}">
+<div *ngIf="submitted==true && addLoginForm.controls['password'].invalid" class="invalid-feedback">
+    <div *ngIf="addLoginForm.controls['password'].errors.required"> password is required</div>
+<div *ngIf="addLoginForm.controls['password'].errors.maxlength">maxmum 7 digit</div>
+<div *ngIf="addLoginForm.controls['password'].errors.minlength">min 5 digit</div>
+   
+  </div>
+  
+<button type="submit" class="btn btn-primary" (click)="login()">login</button>
+</form>
+</div>
+</div>
